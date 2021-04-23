@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom';
 
 export const HeroCard = ({
-    id,
+        id,
         superhero, 
         publisher, 
         alter_ego,
@@ -36,7 +36,7 @@ export const HeroCard = ({
                             <small className="text-muted">{first_appearance}</small>
                         </p>
 
-                        <Link to={`./hero/${id}`}>
+                        <Link to={`./heroes/${id}`}>
                             Mas...
                         </Link>
                     </div>                    

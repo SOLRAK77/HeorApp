@@ -16,7 +16,7 @@ export const DashboardRoutes = () => {
           <div className="container">
               <Switch>
                 <Route exact path="/marvel" component={MarvelScreen} />
-                <Route exact path="/heroes/:heroeId" component={HeroScreen} />
+                <Route exact path="/heroes/:heroId" component={HeroScreen} />
                 <Route exact path="/dc" component={DcScreen} />
                 {/* Sinocumple ninguna de las opciones manda a: */}
                 <Redirect to="/marvel" />
