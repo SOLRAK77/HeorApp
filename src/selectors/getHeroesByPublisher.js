@@ -8,5 +8,7 @@ export const getHeroesByPublisher = (publisher) => {
         throw new Error(`The publisher ${publisher} no es correcto`);
     }
 
+    console.log('Entro');
+
     return heroes.filter(hero => hero.publisher === publisher);
 }
