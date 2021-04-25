@@ -1,9 +1,9 @@
-import React, {useState} from 'react'
+import React, { useMemo } from 'react'
 import queryString from 'query-string';
 import { useLocation } from 'react-router';
-import { heroes } from '../../data/heroes'
 import { useForm } from '../../Hooks/useForm';
 import { HeroCard } from '../heroes/HeroCard';
+import { getHeroByName } from '../../selectors/getHeroByName';
 
 export const SearchScreen = ({history}) => {
     
@@ -12,14 +12,15 @@ export const SearchScreen = ({history}) => {
     const {q = '' } = queryString.parse(location.search);
         
     //const heroesFiltered = heroes;
-    const [heroesF, setHeroesF] = useState(heroes);
     const [FormValues, handleInputChange] = useForm(
         {
             heroSearch: q
         }
-    );
-
+        );
+    
     const {heroSearch} = FormValues;
+    const heroesF = useMemo(() => getHeroByName(q), [q.trim()])
+    //const heroesF = getHeroByName(heroSearch);
 
     const handleSubmit = (e) => {
         e.preventDefault();                
@@ -28,7 +29,7 @@ export const SearchScreen = ({history}) => {
 
     return (
         <div>
-            <h1>Search Screen</h1>
+            <h1>Search Hero Screen</h1>
             <hr/>
             <div className="row">
                 <div className="col-5">
@@ -57,6 +58,23 @@ export const SearchScreen = ({history}) => {
                 <div className="col-7">
                     <h4>Results</h4>
                     <br/>
+
+                    {
+                        (q === '')
+                        &&
+                        <div className="alert alert-info">
+                            Search a Hero
+                        </div>
+                    }
+
+                    {
+                        (q !== '' && heroesF.length === 0)
+                        &&
+                        <div className="alert alert-danger">
+                            There is not a hero with: { q }
+                        </div>
+                    }
+
                     {
                         heroesF.map((hero) => (
                             <HeroCard key={hero.id} {...hero} /> 
