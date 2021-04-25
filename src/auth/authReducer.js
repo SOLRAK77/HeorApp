@@ -1,5 +1,11 @@
 import { types } from "../types/types";
 
+// Estructura de ejemplo
+// const state = {
+//     name : 'Carlos Castillo',
+//     logged : true
+// }
+
 //  Recordar que es una funcion pura
  export const authReducer = (state = {}, action) => {
     switch(action.type)
