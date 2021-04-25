@@ -19,7 +19,7 @@ export const SearchScreen = ({history}) => {
         );
     
     const {heroSearch} = FormValues;
-    const heroesF = useMemo(() => getHeroByName(q), [q.trim()])
+    const heroesF = useMemo(() => getHeroByName(q), [q])
     //const heroesF = getHeroByName(heroSearch);
 
     const handleSubmit = (e) => {

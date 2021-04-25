@@ -1,11 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import AppRouter from './routers/AppRouter';
-
+import { HeroesApp } from './HeroesApp';
 
 
 ReactDOM.render(
-  <AppRouter />,
+  <HeroesApp />,
   document.getElementById('root')
 );
 
