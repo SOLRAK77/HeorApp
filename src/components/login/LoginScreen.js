@@ -11,7 +11,8 @@ export const LoginScreen = ({history}) => {
         // La diferencia es que reemplaza el historia del nevagador
         // {
             //     name : 'Carlos'
-            // }        
+            // }   
+        const lastPath = localStorage.getItem('lastPath') || '/'
             
         dispatch(
             {
@@ -22,7 +23,8 @@ export const LoginScreen = ({history}) => {
                 }
             }            
             );
-        history.replace('/');
+            
+        history.replace(lastPath);
     }
 
     return (

@@ -12,6 +12,8 @@ export const PrivateRoute = (
         ...rest
     }
 ) => {
+    localStorage.setItem('lastPath',rest.location.pathname)
+
     return (
         //Esto coloca el exact, path solo es un puente
         <Route             
